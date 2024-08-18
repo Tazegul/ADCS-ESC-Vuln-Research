@@ -140,11 +140,11 @@ HOGWARTS\severus.snape is a domain admin. <br>
 
 ### Monitoring
 
-<b></b>Enable Audit Certification Services with GPO.</b>
-Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Object Access > Audit Certification Services.
+<b>Enable Audit Certification Services with GPO.</b> </br>
+Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Object Access > Audit Certification Services.</br>
 
-<b></b>Enable Audit Kerberos Authentication Service and Audit Kerberos Service Ticket Operations</b>
-Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Account Logon
+<b></b>Enable Audit Kerberos Authentication Service and Audit Kerberos Service Ticket Operations</b></br>
+Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Account Logon</br>
 
 
 ## Mitigations and Best Practices
