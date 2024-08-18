@@ -28,14 +28,15 @@ IF
     
     AND
 
-    Manager approval is disabled   // The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
+    Manager approval is disabled                              // The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
 
     AND 
     (
-        Number of authorized signatures must be 0 // The msPKI-RA-Signature must be 0
+        Number of authorized signatures must be 0             // The msPKI-RA-Signature must be 0
         OR 
-        (msPKI-RA-Signature attribute is NOT present)  // The msPKI-RA-Signature attribute must NOT be set (i.e., it doesn't exist)
+        msPKI-RA-Signature attribute is NOT present           // The msPKI-RA-Signature attribute must NOT be set (i.e., it doesn't exist)
     )
+
     AND 
     (
         The template has Smartcard Logon EKU                  // pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.2  
@@ -48,37 +49,19 @@ IF
         OR
         The template has no EKU
     )
-    AND 
+
+    AND
+    (
+        Authenticated Users can enroll    // IdentityReference is Authenticated Users, ActiveDirectoryRights is ExtendedRight
+        OR
+        Domain Users can enroll           // IdentityReference is Domain Users, ActiveDirectoryRights is ExtendedRight
+        OR
+        Everyone can enroll               // IdentityReference is Everyone, ActiveDirectoryRights is ExtendedRight
+    ) 
     
 )
 ```
 
-
-"Before & After" dergisinin 1997'te yayımlanan bir sayısında "Lorem ipsum ..." ifadesinin, İ.Ö. 45 yılında Cicero tarafından yazılan etik teorisi ile ilgili bilimsel bir inceleme olan de Finibus Bonorum et Malorum metninde geçen bir bölümün uyarlanmasıyla elde edilen Latince bir ifade olduğu belirlenmiştir. "Lorem ipsum ..." bölümü, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ..." şeklindeki metinden uyarlanmıştır ve "Acıyı seven veya onun peşinden koşan ya da arzulayan kimse yoktur, çünkü o acıdır..." olarak çevrilebilir.
-
-
-1500'lü yıllarda, bir matbaacı Cicero'nun bu metnini alarak baskı örneklerinin yer aldığı bir sayfa yaptı. O günden beri, Latince'ye benzeyen bu metin matbaacılıkta sahte bir standart metin olarak kullanılmaktadır. Elektronik yayımcılıktan önce, grafik tasarımcıların metni gösteren kıvrımlı çizgilerle desenler oluşturmaları gerekiyordu. "Lorem ipsum" metni basılan yapışkan sayfalarda, metnin nereye gireceği açıkça görülüyordu.
-Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla matbaacılar tarafından birkaç yüzyıldır kullanılmaktadır. İçerdiği harfler ve bu birleşimlerin harf aralıkları, yazı tipinin ağırlığını, tasarımını ve diğer önemli özelliklerini açıkça gösterdiği için tercih edilmektedir.
-
-
-"Before & After" dergisinin 1997'te yayımlanan bir sayısında "Lorem ipsum ..." ifadesinin, İ.Ö. 45 yılında Cicero tarafından yazılan etik teorisi ile ilgili bilimsel bir inceleme olan de Finibus Bonorum et Malorum metninde geçen bir bölümün uyarlanmasıyla elde edilen Latince bir ifade olduğu belirlenmiştir. "Lorem ipsum ..." bölümü, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ..." şeklindeki metinden uyarlanmıştır ve "Acıyı seven veya onun peşinden koşan ya da arzulayan kimse yoktur, çünkü o acıdır..." olarak çevrilebilir.
-
-
-1500'lü yıllarda, bir matbaacı Cicero'nun bu metnini alarak baskı örneklerinin yer aldığı bir sayfa yaptı. O günden beri, Latince'ye benzeyen bu metin matbaacılıkta sahte bir standart metin olarak kullanılmaktadır. Elektronik yayımcılıktan önce, grafik tasarımcıların metni gösteren kıvrımlı çizgilerle desenler oluşturmaları gerekiyordu. "Lorem ipsum" metni basılan yapışkan sayfalarda, metnin nereye gireceği açıkça görülüyordu.
-Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla matbaacılar tarafından birkaç yüzyıldır kullanılmaktadır. İçerdiği harfler ve bu birleşimlerin harf aralıkları, yazı tipinin ağırlığını, tasarımını ve diğer önemli özelliklerini açıkça gösterdiği için tercih edilmektedir.
-
-
-"Before & After" dergisinin 1997'te yayımlanan bir sayısında "Lorem ipsum ..." ifadesinin, İ.Ö. 45 yılında Cicero tarafından yazılan etik teorisi ile ilgili bilimsel bir inceleme olan de Finibus Bonorum et Malorum metninde geçen bir bölümün uyarlanmasıyla elde edilen Latince bir ifade olduğu belirlenmiştir. "Lorem ipsum ..." bölümü, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ..." şeklindeki metinden uyarlanmıştır ve "Acıyı seven veya onun peşinden koşan ya da arzulayan kimse yoktur, çünkü o acıdır..." olarak çevrilebilir.
-
-
-1500'lü yıllarda, bir matbaacı Cicero'nun bu metnini alarak baskı örneklerinin yer aldığı bir sayfa yaptı. O günden beri, Latince'ye benzeyen bu metin matbaacılıkta sahte bir standart metin olarak kullanılmaktadır. Elektronik yayımcılıktan önce, grafik tasarımcıların metni gösteren kıvrımlı çizgilerle desenler oluşturmaları gerekiyordu. "Lorem ipsum" metni basılan yapışkan sayfalarda, metnin nereye gireceği açıkça görülüyordu.
-Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla matbaacılar tarafından birkaç yüzyıldır kullanılmaktadır. İçerdiği harfler ve bu birleşimlerin harf aralıkları, yazı tipinin ağırlığını, tasarımını ve diğer önemli özelliklerini açıkça gösterdiği için tercih edilmektedir.
-
-
-"Before & After" dergisinin 1997'te yayımlanan bir sayısında "Lorem ipsum ..." ifadesinin, İ.Ö. 45 yılında Cicero tarafından yazılan etik teorisi ile ilgili bilimsel bir inceleme olan de Finibus Bonorum et Malorum metninde geçen bir bölümün uyarlanmasıyla elde edilen Latince bir ifade olduğu belirlenmiştir. "Lorem ipsum ..." bölümü, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ..." şeklindeki metinden uyarlanmıştır ve "Acıyı seven veya onun peşinden koşan ya da arzulayan kimse yoktur, çünkü o acıdır..." olarak çevrilebilir.
-
-
-1500'lü yıllarda, bir matbaacı Cicero'nun bu metnini alarak baskı örneklerinin yer aldığı bir sayfa yaptı. O günden beri, Latince'ye benzeyen bu metin matbaacılıkta sahte bir standart metin olarak kullanılmaktadır. Elektronik yayımcılıktan önce, grafik tasarımcıların metni gösteren kıvrımlı çizgilerle desenler oluşturmaları gerekiyordu. "Lorem ipsum" metni basılan yapışkan sayfalarda, metnin nereye gireceği açıkça görülüyordu.
 # Manual Detection
 
 Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla matbaacılar tarafından birkaç yüzyıldır kullanılmaktadır. İçerdiği harfler ve bu birleşimlerin harf aralıkları, yazı tipinin ağırlığını, tasarımını ve diğer önemli özelliklerini açıkça gösterdiği için tercih edilmektedir.
