@@ -76,6 +76,6 @@ Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla
 
 # Red Team Approach
 # Blue Team Approach
-# Mitigations
+# Mitigations and Best Practices
 
 
