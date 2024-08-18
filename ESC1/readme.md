@@ -116,8 +116,12 @@ else
 # Red Team Approach
 
 <b>Step1-Find vulnerable Certificates </b>
-```bash
-echo -e "\e[31mThis text will be red\e[0m and this text will be normal."
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
 ```
 
 
