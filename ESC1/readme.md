@@ -157,13 +157,10 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Certificate Server | 4887 | Certificate Services received a certificate request. |
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
-</br>
 
 #### Monitoring Step2 of Red Team Approach
-<p>
-    <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
-    <em>image_caption</em>
-</p>
+<img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
+
 
 
 ## Mitigations and Best Practices
