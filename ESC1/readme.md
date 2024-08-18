@@ -24,7 +24,9 @@ The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Serv
 IF 
 (
     Requester has the ability to specify subjectAltName (SAN) in the CSR
+    <pre style="background-color: #f4f4f4; color: #333;">
     // (Suplly in Request)
+    </pre>
     AND 
     (NOT (msPKI-Enrollment-Flag has the 0x2 bit set))  // The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
     AND 
