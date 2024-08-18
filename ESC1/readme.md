@@ -136,6 +136,8 @@ HOGWARTS\severus.snape is a domain admin. <br>
 <b>-upn</b>        : Set UPN. This UPN will be included in the issued certificate. It allows impersonating <b>HOGWARTS\severus.snape</b> <br>
 <b>-target</b>     : DNS name of the CA. <br>
 
+<img src="https://github.com/user-attachments/assets/50137654-442c-44f1-b482-6353bd56671a">
+
 ## Blue Team Approach
 
 ### Monitoring
@@ -148,6 +150,15 @@ Computer Configuration > Policies > Windows Settings > Security Settings > Advan
 
 <b>Enable Certificate Authority Auditing</b></br>
 certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except "Start Stop Active Directory Certificate Services"
+
+|Server| Event ID | Description |
+|---| --- | --- |
+| Certificate Server | 4886 | Request for Certificate (Certificate Services received a certificate request.) |
+| Certificate Server | 4887 | Certificate Services received a certificate request. |
+| Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
+| Domain Controller | 4769 | A Kerberos service ticket was requested. |
+</br>
+<img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 
 ## Mitigations and Best Practices
 
