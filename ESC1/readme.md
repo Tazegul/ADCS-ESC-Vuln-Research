@@ -117,7 +117,7 @@ else
 
 <b>Step1-Find vulnerable Certificates </b>
 ```console
-certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111  -enabled -vulnerable -debug
+# certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111  -enabled -vulnerable -debug
 ```
 
 
