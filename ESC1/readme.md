@@ -119,7 +119,9 @@ else
 ```console
 # certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip "192.168.0.111"  -enabled -vulnerable -debug
 ```
-
+<b>-enabled</b>    : Ignore disabled templates.
+<b>-vulnerable</b> : Show certificate templates that are vulnerable to known attacks or misconfigurations.
+<b>-debug</b>      : Provide more detailed information about the command's execution process.
 
 ## Blue Team Approach
 
