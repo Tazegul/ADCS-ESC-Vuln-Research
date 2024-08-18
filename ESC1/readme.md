@@ -19,14 +19,31 @@ The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Serv
 <img src="https://github.com/user-attachments/assets/b1db857d-8f4d-4798-9866-96a4491039ef" width="300" height="500">
 <img src="https://github.com/user-attachments/assets/1f1eab61-508b-4c3d-a891-2fd3fcbcac25" width="300" height="500"> <br>
 
+### Misconfigurations Condition
 ```
-PROGRAM IsEvenOrOdd:
-  var num = number;
-  IF (num % 2 === 0)
-    THEN Print "even";
-    ELSE Print "odd";
-  ENDIF;
-END.
+IF 
+(
+    Requester has the ability to specify subjectAltName (SAN) in the CSR
+    // (Suplly in Request)
+    AND 
+    (NOT (msPKI-Enrollment-Flag has the 0x2 bit set))  // The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
+    AND 
+    (
+        (msPKI-RA-Signature = 0)  // The msPKI-RA-Signature must be 0
+        OR 
+        (msPKI-RA-Signature attribute is NOT present)  // The msPKI-RA-Signature attribute must NOT be set (i.e., it doesn't exist)
+    )
+    AND 
+    (
+        (pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.2)  // The template has Smartcard Logon EKU
+        OR 
+        (pkiextendedkeyusage = 1.3.6.1.5.5.7.3.2)  // The template has Client Authentication EKU
+        OR 
+        (pkiextendedkeyusage = 1.3.6.1.5.2.3.4)  // The template has PKINIT Client Authentication EKU
+    )
+    AND 
+    (msPKI-Certificate-Name-Flag has the 0x1 bit set)  // The msPKI-Certificate-Name-Flag must have the 0x1 bit set
+)
 ```
 
 
