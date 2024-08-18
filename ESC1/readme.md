@@ -117,7 +117,7 @@ else
 
 <b>Step1-Find vulnerable Certificates </b>
 ```bash
-certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111  -enabled -vulnerable -debug
+echo -e "\e[31mThis text will be red\e[0m and this text will be normal."
 ```
 
 
