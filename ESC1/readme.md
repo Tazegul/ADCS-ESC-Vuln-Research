@@ -3,8 +3,8 @@
 1. [ESC1 Vulnerability](#esc1-vulnerability)
 1. [Misconfigurations](#misconfigurations)
 2. [Manual Detection](#manual-detection)
-3. [Red Team Approach](#red-team-approach)
-4. [Blue Team Approach](#blue-team-approach)
+3. [Red Team Activity](#red-team-activity)
+4. [Blue Team Activity](#blue-team-activity)
 5. [Mitigations and Best Practices](#mitigations-and-best-practices)
 
 
@@ -113,7 +113,7 @@ else
 ```
 
 
-## Red Team Approach
+## Red Team Activity
 HOGWARTS\harry.potter is a user with lowest privilege. It is a just a member of Domain Users. <br>
 HOGWARTS\severus.snape is a domain admin. <br>
 ### Step1-Find vulnerable Certificates
@@ -138,7 +138,12 @@ HOGWARTS\severus.snape is a domain admin. <br>
 
 <img src="https://github.com/user-attachments/assets/50137654-442c-44f1-b482-6353bd56671a">
 
-## Blue Team Approach
+[!NOTE]  
+Highlights information that users should take into account, even when skimming.
+
+
+
+## Blue Team Activity
 
 ### Monitoring
 
@@ -158,7 +163,7 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
-#### Monitoring Step2 of Red Team Approach
+#### Monitoring Step2 of Red Team Activity
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 
 
