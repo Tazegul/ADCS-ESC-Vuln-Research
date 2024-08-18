@@ -114,9 +114,9 @@ else
 
 
 ## Red Team Approach
-HOGWARTS\harry.potter is a user with lowest privilege. It is a just a member of Domain Users.
-HOGWARTS\severus.snape is a domain admin. 
-<b>Step1-Find vulnerable Certificates </b>
+HOGWARTS\harry.potter is a user with lowest privilege. It is a just a member of Domain Users. <br>
+HOGWARTS\severus.snape is a domain admin. <br>
+###Step1-Find vulnerable Certificates
 ```console
 # certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip "192.168.0.111"  -enabled -vulnerable -debug
 ```
