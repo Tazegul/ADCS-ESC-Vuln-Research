@@ -116,15 +116,7 @@ else
 # Red Team Approach
 
 <b>Step1-Find vulnerable Certificates </b>
-```diff
-
-certipy-ad find +-u !'harry.patter'
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
+$${\color{blue}Blue}$$
 # Example Command with Colorization
 
 Here is a colorized Bash command example:
