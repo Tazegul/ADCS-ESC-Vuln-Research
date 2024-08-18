@@ -21,7 +21,7 @@ The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Serv
 
 ### Misconfigurations Condition
 
-```
+<code>
 IF 
 (
     Requester has the ability to specify subjectAltName (SAN) in the CSR // Suplly in Request is selected i.e. msPKI-Certificate-Name is set to flag "CT_FLAG_ENROLEE_SUPPLIES_SUBJECT"
@@ -47,7 +47,7 @@ IF
     AND 
     (msPKI-Certificate-Name-Flag has the 0x1 bit set)  // The msPKI-Certificate-Name-Flag must have the 0x1 bit set
 )
-```
+</code>
 
 
 "Before & After" dergisinin 1997'te yayımlanan bir sayısında "Lorem ipsum ..." ifadesinin, İ.Ö. 45 yılında Cicero tarafından yazılan etik teorisi ile ilgili bilimsel bir inceleme olan de Finibus Bonorum et Malorum metninde geçen bir bölümün uyarlanmasıyla elde edilen Latince bir ifade olduğu belirlenmiştir. "Lorem ipsum ..." bölümü, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ..." şeklindeki metinden uyarlanmıştır ve "Acıyı seven veya onun peşinden koşan ya da arzulayan kimse yoktur, çünkü o acıdır..." olarak çevrilebilir.
