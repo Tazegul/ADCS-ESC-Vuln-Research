@@ -3,7 +3,7 @@
 1. [Misconfigurations](#misconfigurations)
 2. [Manual Detection](#manual-detection)
 3. [Red Team Approach](#red-team-approach)
-4. [Blue Team Approach](#Rblue-team-approach)
+4. [Blue Team Approach](#blue-team-approach)
 5. [Mitigations and Best Practices](#mitigations-and-best-practices)
 
 
