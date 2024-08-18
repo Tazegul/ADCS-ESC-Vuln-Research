@@ -115,6 +115,8 @@ else
 
 # Red Team Approach
 
+<b>Step1-Find vulnerable Certificates </b>
+
 
 
 # Blue Team Approach
