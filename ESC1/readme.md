@@ -138,8 +138,8 @@ HOGWARTS\severus.snape is a domain admin. <br>
 
 <img src="https://github.com/user-attachments/assets/50137654-442c-44f1-b482-6353bd56671a">
 
-[!NOTE]  
-Highlights information that users should take into account, even when skimming.
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
 
 
 
