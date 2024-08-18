@@ -125,6 +125,12 @@ certipy-ad find +-u !'harry.patter'
 # text in gray
 @@ text in purple (and bold)@@
 ```
+# Example Command with Colorization
+
+Here is a colorized Bash command example:
+
+```bash
+echo -e "\e[34mcertipy-ad find \e[32m-u \e[33m'harry.potter@hogwarts.local' \e[32m-p \e[33m'Gryffindor1.' \e[32m-dc-ip \e[33m192.168.0.111 \e[32m-enabled \e[32m-vulnerable \e[32m-debug\e[0m"
 
 
 # Blue Team Approach
