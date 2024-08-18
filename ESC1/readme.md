@@ -66,8 +66,50 @@ IF
 
 ```powershell
 $domain = "DC=hogwarts,DC=local"
-$possible_certs = Get-ADObject -LDAPFilter $Filter_Last -SearchBase "CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,$($domain)" -Properties nTSecurityDescriptor | Where-Object { $_.Name -notin @("CA", "SubCA", "OfflineRouter") }
+$Filter1 = '(objectclass=pkicertificatetemplate)' #Ensure that object is certificate
+$Filter2 = '(!(mspki-enrollment-flag:1.2.840.113556.1.4.804:=2))' #Ensure that manager approval is disabled
 
+$Filter3_1 = '(msPKI-RA-Signature=0)' # Ensure that 0 signatures required for a cert enrollment.
+$Filter3_2 = '(!(msPKI-RA-Signature=*))' #Ensure that this attribute not set (i.e. it does not exist.)
+$Filter3 = "(|"+$Filter3_1+$Filter3_2+")"
+
+$Filter4 = "(mspki-certificate-name-flag:1.2.840.113556.1.4.804:=1)" # Ensure that msPKI-Certificate-Name is set to flag (CT_FLAG_ENROLEE_SUPPLIES_SUBJECT)
+
+$Filter5 = "(|(pkiextendedkeyusage=1.3.6.1.4.1.311.20.2.2)(pkiextendedkeyusage=1.3.6.1.5.5.7.3.2)(pkiextendedkeyusage=1.3.6.1.5.2.3.4)(pkiextendedkeyusage=2.5.29.37.0)(!(pkiextendedkeyusage=*)))"
+# "(pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.2)" # SmartCard Logon
+# "(pkiextendedkeyusage = 1.3.6.1.5.5.7.3.2)"      # Client Authentication
+# "(pkiextendedkeyusage = 1.3.6.1.5.2.3.4)"        # PKINIT Client Authentication
+# "(pkiextendedkeyusage = 2.5.29.37.0)"            # Any Purpose
+# "(!(pkiextendedkeyusage=*))"                     # If pkiextendedkeyusage is not set. 
+
+$Filter_LAST = "(&"+$Filter1+$Filter2+$Filter3+$Filter4+$Filter5+ ")"
+
+$possible_certs = Get-ADObject -LDAPFilter $Filter_Last -SearchBase "CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,$($domain)" -Properties nTSecurityDescriptor | Where-Object { $_.Name -notin @("CA", "SubCA", "OfflineRouter") }
+$cert_count = ($possible_certs | Measure-Object).Count
+
+if($cert_count -ne 0)
+{
+    $RESULT = 0
+    foreach ($cert in $possible_certs) {
+        $acl = $cert.nTSecurityDescriptor
+        foreach ($access in $acl.Access) {
+            if((($access.IdentityReference -like "*Authenticated Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')) -or (($access.IdentityReference -like "*Domain Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')) -or (($access.IdentityReference -like "*Everyone*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*'))){
+                $RESULT = 1
+            }
+        }
+        if( $RESULT = 1){
+            Write-Host "$($cert.Name) is vulnerable to ESC1 attack."
+        }
+    }
+
+    if( $RESULT = 0){
+        Write-Host "No certificate is vulnerable to ESC1 attack."
+    }
+}
+else
+{
+    Write-Host "No certificate is vulnerable to ESC1 attack."
+}
 ```
 
 
