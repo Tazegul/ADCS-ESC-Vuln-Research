@@ -146,6 +146,8 @@ Computer Configuration > Policies > Windows Settings > Security Settings > Advan
 <b>Enable Audit Kerberos Authentication Service and Audit Kerberos Service Ticket Operations</b></br>
 Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Account Logon</br>
 
+<b>Enable Certificate Authority Auditing</b></br>
+certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except "Start Stop Active Directory Certificate Services"
 
 ## Mitigations and Best Practices
 
