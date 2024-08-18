@@ -21,33 +21,37 @@ The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Serv
 
 ### Misconfigurations Condition
 
-<code>
+```
 IF 
 (
-    Requester has the ability to specify subjectAltName (SAN) in the CSR // Suplly in Request is selected i.e. msPKI-Certificate-Name is set to flag "CT_FLAG_ENROLEE_SUPPLIES_SUBJECT"
+    Requester has the ability to specify subjectAltName (SAN) in the CSR // Suplly in Request is selected i.e., msPKI-Certificate-Name is set to flag "CT_FLAG_ENROLEE_SUPPLIES_SUBJECT"
     
     AND
 
-    <b>Manager approval is disabled</b>   //The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
+    Manager approval is disabled   // The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
 
     AND 
     (
-        (msPKI-RA-Signature = 0)  // The msPKI-RA-Signature must be 0
+        Number of authorized signatures must be 0 // The msPKI-RA-Signature must be 0
         OR 
         (msPKI-RA-Signature attribute is NOT present)  // The msPKI-RA-Signature attribute must NOT be set (i.e., it doesn't exist)
     )
     AND 
     (
-        (pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.2)  // The template has Smartcard Logon EKU
+        The template has Smartcard Logon EKU                  // pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.2  
         OR 
-        (pkiextendedkeyusage = 1.3.6.1.5.5.7.3.2)  // The template has Client Authentication EKU
+        The template has Client Authentication EKU            // pkiextendedkeyusage = 1.3.6.1.5.5.7.3.2  
         OR 
-        (pkiextendedkeyusage = 1.3.6.1.5.2.3.4)  // The template has PKINIT Client Authentication EKU
+        The template has PKINIT Client Authentication EKU     // pkiextendedkeyusage = 1.3.6.1.5.2.3.4
+        OR
+        The template has Any Purpose EKU                      // pkiextendedkeyusage = 2.5.29.37.0
+        OR
+        The template has no EKU
     )
     AND 
-    (msPKI-Certificate-Name-Flag has the 0x1 bit set)  // The msPKI-Certificate-Name-Flag must have the 0x1 bit set
+    
 )
-</code>
+```
 
 
 "Before & After" dergisinin 1997'te yayımlanan bir sayısında "Lorem ipsum ..." ifadesinin, İ.Ö. 45 yılında Cicero tarafından yazılan etik teorisi ile ilgili bilimsel bir inceleme olan de Finibus Bonorum et Malorum metninde geçen bir bölümün uyarlanmasıyla elde edilen Latince bir ifade olduğu belirlenmiştir. "Lorem ipsum ..." bölümü, "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit ..." şeklindeki metinden uyarlanmıştır ve "Acıyı seven veya onun peşinden koşan ya da arzulayan kimse yoktur, çünkü o acıdır..." olarak çevrilebilir.
