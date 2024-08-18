@@ -98,17 +98,17 @@ if($cert_count -ne 0)
             }
         }
         if( $RESULT = 1){
-            Write-Host "$($cert.Name) is vulnerable to ESC1 attack."
+            Write-Host "$($cert.Name) is ESC1 vulnerable."
         }
     }
 
     if( $RESULT = 0){
-        Write-Host "No certificate is vulnerable to ESC1 attack."
+        Write-Host "No certificate is has ESC1 vulnerability."
     }
 }
 else
 {
-    Write-Host "No certificate is vulnerable to ESC1 attack."
+    Write-Host "No certificate is has ESC1 vulnerability."
 }
 ```
 
