@@ -116,7 +116,7 @@ else
 # Red Team Approach
 
 <b>Step1-Find vulnerable Certificates </b>
-```bash
+```console
 # certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111  -enabled -vulnerable -debug
 ```
 
