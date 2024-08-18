@@ -24,10 +24,12 @@ The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Serv
 ```
 IF 
 (
-    Requester has the ability to specify subjectAltName (SAN) in the CSR
-    // (Suplly in Request)
-    AND 
-    (NOT (msPKI-Enrollment-Flag has the 0x2 bit set))  // The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
+    Requester has the ability to specify subjectAltName (SAN) in the CSR // Suplly in Request is selected i.e. msPKI-Certificate-Name is set to flag "CT_FLAG_ENROLEE_SUPPLIES_SUBJECT"
+    
+    AND
+
+    <b>Manager approval is disabled</b>   //The msPKI-Enrollment-Flag must NOT have the 0x2 bit set
+
     AND 
     (
         (msPKI-RA-Signature = 0)  // The msPKI-RA-Signature must be 0
