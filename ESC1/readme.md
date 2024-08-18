@@ -138,6 +138,7 @@ HOGWARTS\severus.snape is a domain admin user. <br>
 
 <img src="https://github.com/user-attachments/assets/50137654-442c-44f1-b482-6353bd56671a">
 </br>
+
 > [!NOTE]  
 > A PFX file is a Personal Information Exchange file used for the storage and transfer of cryptographic information, most commonly a certificate. It generally includes a certificate, possibly with its public key, and its corresponding private key, possibly with a certificate chain. These are all basically used for communications—SSL/TLS for websites or digital signatures.
 
