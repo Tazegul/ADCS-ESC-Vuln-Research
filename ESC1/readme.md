@@ -10,7 +10,7 @@
 
 
 
-
+The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Services Vulnerability," is a security flaw in certain certificate templates used in Microsoft Active Directory Certificate Services (AD CS). This vulnerability allows users with low privileges to request and obtain certificates on behalf of any domain object, including high-privilege accounts like domain administrators.
 
 
 ## Misconfigurations
