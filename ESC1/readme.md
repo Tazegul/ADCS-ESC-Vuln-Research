@@ -117,6 +117,8 @@ else
 
 <b>Step1-Find vulnerable Certificates </b>
 ```diff
+
+certipy-ad find +-u !'harry.patter'
 - text in red
 + text in green
 ! text in orange
