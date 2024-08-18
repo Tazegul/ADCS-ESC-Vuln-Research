@@ -15,7 +15,7 @@ The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Serv
 
 
 ## Misconfigurations
-https://github.com/user-attachments/assets/d6aea50f-6f63-400e-8612-e2e95194decd
+![asddsadsa](https://github.com/user-attachments/assets/d6aea50f-6f63-400e-8612-e2e95194decd)
 Anlamlı bir metin gibi görünen bu ifade, yazı tiplerini göstermek amacıyla matbaacılar tarafından birkaç yüzyıldır kullanılmaktadır. İçerdiği harfler ve bu birleşimlerin harf aralıkları, yazı tipinin ağırlığını, tasarımını ve diğer önemli özelliklerini açıkça gösterdiği için tercih edilmektedir.
 
 
