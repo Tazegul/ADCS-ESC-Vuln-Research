@@ -30,6 +30,8 @@ IF
     (
         The template has Certificate Request Agent EKU        // pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.1
         OR
+        The template has Any Purpose EKU                      // pkiextendedkeyusage = 2.5.29.37.0
+        OR
         The template has no EKU
     )
 
@@ -49,8 +51,53 @@ IF
 ### Manual Detection with Powershell and LDAP
 
 ```powershell
+$domain = "DC=hogwarts,DC=local"
+$Filter1 = '(objectclass=pkicertificatetemplate)' #Ensure that object is certificate
+$Filter2 = '(!(mspki-enrollment-flag:1.2.840.113556.1.4.804:=2))' #Ensure that manager approval is disabled
+
+$Filter3_1 = '(msPKI-RA-Signature=0)' # Ensure that 0 signatures required for a cert enrollment.
+$Filter3_2 = '(!(msPKI-RA-Signature=*))' #Ensure that this attribute not set (i.e. it does not exist.)
+$Filter3 = "(|"+$Filter3_1+$Filter3_2+")"
 
 
+$Filter4 = "(|(pkiextendedkeyusage=1.3.6.1.4.1.311.20.2.1)(pkiextendedkeyusage=2.5.29.37.0)(!(pkiextendedkeyusage=*)))"
+# "(pkiextendedkeyusage=1.3.6.1.4.1.311.20.2.1)"   # Certificate Request Agent EKU
+# "(pkiextendedkeyusage = 2.5.29.37.0)"            # Any Purpose
+# "(!(pkiextendedkeyusage=*))"                     # If pkiextendedkeyusage is not set. 
+
+$Filter_LAST = "(&"+$Filter1+$Filter2+$Filter3+$Filter4+ ")"
+
+$possible_certs = Get-ADObject -LDAPFilter $Filter_Last -SearchBase "CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,$($domain)" -Properties nTSecurityDescriptor | Where-Object { $_.Name -notin @("CA", "SubCA", "OfflineRouter") }
+$cert_count = ($possible_certs | Measure-Object).Count
+
+if($cert_count -ne 0)
+{
+    
+    foreach ($cert in $possible_certs) 
+    {
+        $acl = $cert.nTSecurityDescriptor
+        foreach($access in $acl.Access)
+        {
+            if(($access.IdentityReference -like "*Authenticated Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*'))
+                {
+                    echo "$($cert.Name) Authenticated Users with ExtendedRight and it is vulnerable to ESC1."
+                }
+            elseif((($access.IdentityReference -like "*Domain Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
+                {
+                    echo "$($cert.Name) Domain Users with ExtendedRight and it is vulnerable to ESC1.."
+                }
+            elseif((($access.IdentityReference -like "*Everyone*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
+                {
+                    echo " $($cert.Name) Everyone with ExtendedRight and it is vulnerable to ESC1."
+                }
+
+        }
+    }
+}
+else
+{
+    echo "There is no certificate which is vulnerable to ESC1."
+}
 ```
 
 ## Red Team Activity
