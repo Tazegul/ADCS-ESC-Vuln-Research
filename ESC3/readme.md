@@ -9,7 +9,7 @@
 7. [Mitigations and Best Practices](#mitigations-and-best-practices)
 
 ## ESC3 Vulnerability
-
+Active Directory Certificate Services (AD CS) ESC3 is a specific vulnerability related to certificate enrollment in AD CS, which allows an attacker to escalate privileges by impersonating another user. ESC3 vulnerable template allow requester(attacker) to request certificate <b>on behalf of</b> other users.
 ## Misconfigurations
 Unlike ESC1, the requester doesn't have to have the ability to specify subjectAltName (SAN) in the CSR. In other words, msPKI-Certificate-Name doesn't have to be set to flag "CT_FLAG_ENROLEE_SUPPLIES_SUBJECT".
 ### Misconfigurations Condition
