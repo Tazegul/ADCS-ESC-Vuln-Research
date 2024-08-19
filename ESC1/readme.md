@@ -2,11 +2,11 @@
 
 1. [ESC1 Vulnerability](#esc1-vulnerability)
 2. [Misconfigurations](#misconfigurations) </br>
-   2.1. [Misconfiguration Condition](#misconfigurations-condition)
-4. [Manual Detection with Powershell and LDAP](#manual-detection-with-powershell-and-ldap)
-5. [Red Team Activity](#red-team-activity)
-6. [Blue Team Activity](#blue-team-activity)
-7. [Mitigations and Best Practices](#mitigations-and-best-practices)
+   2.1. [Misconfiguration Condition](#misconfigurations-condition)</br>
+   2.2. [Manual Detection with Powershell and LDAP](#manual-detection-with-powershell-and-ldap)
+3. [Red Team Activity](#red-team-activity)
+4. [Blue Team Activity](#blue-team-activity)
+5. [Mitigations and Best Practices](#mitigations-and-best-practices)
 
 
 
