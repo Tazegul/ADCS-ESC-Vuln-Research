@@ -28,7 +28,7 @@ IF
 
     AND 
     (
-        The template has Certificate Request Agent EKU        // pkiextendedkeyusage = 2.5.29.37.0
+        The template has Certificate Request Agent EKU        // pkiextendedkeyusage = 1.3.6.1.4.1.311.20.2.1
         OR
         The template has no EKU
     )
