@@ -63,7 +63,7 @@ IF
 )
 ```
 
-## Manual Detection with Powershell and LDAP
+### Manual Detection with Powershell and LDAP
 
 ```powershell
 $domain = "DC=hogwarts,DC=local"
