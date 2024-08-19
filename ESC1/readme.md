@@ -89,27 +89,33 @@ $cert_count = ($possible_certs | Measure-Object).Count
 
 if($cert_count -ne 0)
 {
-    $RESULT = 0
-    foreach ($cert in $possible_certs) {
+    
+    foreach ($cert in $possible_certs) 
+    {
+        $RESULT = 0
         $acl = $cert.nTSecurityDescriptor
-        foreach ($access in $acl.Access) {
-            if((($access.IdentityReference -like "*Authenticated Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')) -or (($access.IdentityReference -like "*Domain Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')) -or (($access.IdentityReference -like "*Everyone*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*'))){
-                $RESULT = 1
-            }
-        }
-        if( $RESULT = 1){
-            Write-Host "$($cert.Name) is ESC1 vulnerable."
-        }
-    }
+        foreach($access in $acl.Access)
+        {
+            if(($access.IdentityReference -like "*Authenticated Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*'))
+                {
+                    echo "$($cert.Name) Authenticated Users with ExtendedRight and it is ESC1 vulnerable."
+                    $RESULT = 1
+                }
+            elseif((($access.IdentityReference -like "*Domain Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
+                {
+                    echo "$($cert.Name) Domain Users with ExtendedRight and it is ESC1 vulnerable."
+                    $RESULT = 1
+                }
+            elseif((($access.IdentityReference -like "*Everyone*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
+                {
+                    echo " $($cert.Name) Everyone with ExtendedRight and it is ESC1 vulnerable."
+                    $RESULT = 1
+                }
 
-    if( $RESULT = 0){
-        Write-Host "No certificate is ESC1 vulnerable."
+        }
     }
 }
-else
-{
-    Write-Host "No certificate is ESC1 vulnerable."
-}
+
 ```
 
 
