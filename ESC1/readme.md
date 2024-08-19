@@ -203,6 +203,9 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 
 ## Mitigations and Best Practices
 
-It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
+* It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
+* Conduct a comprehensive monitoring.
+* Disable NTLM authentication and force Kerberos Authentication.
+* See https://learn.microsoft.com/en-us/defender-for-identity/security-assessment-prevent-users-request-certificate.
 
 
