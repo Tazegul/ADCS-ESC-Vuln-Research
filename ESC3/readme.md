@@ -101,6 +101,19 @@ else
 ```
 
 ## Red Team Activity
+HOGWARTS\harry.potter is a user with lowest privilege. It is a just a member of Domain Users. <br>
+HOGWARTS\severus.snape is a domain admin user. <br>
+### Step1-Find vulnerable Certificates Based on the Vulnerable Certificate Template ESC3.
+```console
+# certipy-ad find -u 'harry.potter@hogwarts.local' -p "Gryffindor1." -dc-ip "192.168.0.111"  -enabled -vulnerable -debug
+```
+<b>-enabled</b>    : Ignore disabled templates. <br>
+<b>-vulnerable</b> : Show certificate templates that are vulnerable to known attacks or misconfigurations. <br>
+<b>-debug</b>      : Provide more detailed information about the command's execution process. <br>
+
+<img src="https://github.com/user-attachments/assets/2c156fbd-97f0-4c4e-a03a-9b8a809af252">
+
+### Step2-Request a Certificate on Behalf of Other Another User
 
 ## Blue Team Activity
 
