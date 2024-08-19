@@ -93,24 +93,20 @@ if($cert_count -ne 0)
     
     foreach ($cert in $possible_certs) 
     {
-        $RESULT = 0
         $acl = $cert.nTSecurityDescriptor
         foreach($access in $acl.Access)
         {
             if(($access.IdentityReference -like "*Authenticated Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*'))
                 {
                     echo "$($cert.Name) Authenticated Users with ExtendedRight and it is ESC1 vulnerable."
-                    $RESULT = 1
                 }
             elseif((($access.IdentityReference -like "*Domain Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
                 {
                     echo "$($cert.Name) Domain Users with ExtendedRight and it is ESC1 vulnerable."
-                    $RESULT = 1
                 }
             elseif((($access.IdentityReference -like "*Everyone*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
                 {
                     echo " $($cert.Name) Everyone with ExtendedRight and it is ESC1 vulnerable."
-                    $RESULT = 1
                 }
 
         }
