@@ -2,7 +2,7 @@
 
 1. [ESC1 Vulnerability](#esc1-vulnerability)
 2. [Misconfigurations](#misconfigurations)
-   2.1. [Misconfiguration Condition](#misconfiguration-condition)
+   2.1. [Misconfiguration Condition](#misconfigurations-condition)
 4. [Manual Detection](#manual-detection)
 5. [Red Team Activity](#red-team-activity)
 6. [Blue Team Activity](#blue-team-activity)
