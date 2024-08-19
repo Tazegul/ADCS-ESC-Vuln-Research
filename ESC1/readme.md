@@ -1,7 +1,7 @@
 # Table of Contents
 
 1. [ESC1 Vulnerability](#esc1-vulnerability)
-2. [Misconfigurations](#misconfigurations)
+2. [Misconfigurations](#misconfigurations) </br>
    2.1. [Misconfiguration Condition](#misconfigurations-condition)
 4. [Manual Detection](#manual-detection)
 5. [Red Team Activity](#red-team-activity)
@@ -203,6 +203,6 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 
 ## Mitigations and Best Practices
 
-It is recommended to distrupt the [Misconfiguration Condition](#misconfiguration-condition) algorithm.
+It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
 
 
