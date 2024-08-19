@@ -1,11 +1,12 @@
 # Table of Contents
 
 1. [ESC1 Vulnerability](#esc1-vulnerability)
-1. [Misconfigurations](#misconfigurations)
-2. [Manual Detection](#manual-detection)
-3. [Red Team Activity](#red-team-activity)
-4. [Blue Team Activity](#blue-team-activity)
-5. [Mitigations and Best Practices](#mitigations-and-best-practices)
+2. [Misconfigurations](#misconfigurations)
+   2.1. [Misconfiguration Condition](#misconfiguration-condition)
+4. [Manual Detection](#manual-detection)
+5. [Red Team Activity](#red-team-activity)
+6. [Blue Team Activity](#blue-team-activity)
+7. [Mitigations and Best Practices](#mitigations-and-best-practices)
 
 
 
@@ -202,5 +203,6 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 
 ## Mitigations and Best Practices
 
-* It is recommended to require CA manager approval for critical templates. </br>
+It is recommended to distrupt the [Misconfiguration Condition](#misconfiguration-condition) algorithm.
+
 
