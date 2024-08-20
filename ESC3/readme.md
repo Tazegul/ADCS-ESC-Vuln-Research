@@ -163,4 +163,35 @@ export KRB5CCNAME=severus.snape.ccache;impacket-wmiexec -dc-ip 192.168.0.111 -ta
 
 ## Blue Team Activity
 
+### Monitoring
+
+<b>Enable Audit Certification Services with GPO.</b> </br>
+Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Object Access > Audit Certification Services.</br>
+
+<b>Enable Audit Kerberos Authentication Service and Audit Kerberos Service Ticket Operations</b></br>
+Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Account Logon</br>
+
+<b>Enable Certificate Authority Auditing</b></br>
+certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except "Start Stop Active Directory Certificate Services"
+
+|Server| Event ID | Description |
+|---| --- | --- |
+| Certificate Server | 4886 | Request for Certificate (Certificate Services received a certificate request.) |
+| Certificate Server | 4887 | Certificate Services received a certificate request. |
+| Certificate Server | 4888 | Certificate Services denied a certificate request. |
+| Certificate Server | 4898 | Certificate Services loaded a certificate. |
+| Certificate Server | 4870 | Certificate Services revoked a certificate. |
+| Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
+| Domain Controller | 4769 | A Kerberos service ticket was requested. |
+
+#### Monitoring Step2 of Red Team Activity
+<img src="https://github.com/user-attachments/assets/b57eac6f-8970-4cff-9350-40a4670ece39">
+
+#### Monitoring Step3 of Red Team Activity
+<img src="https://github.com/user-attachments/assets/e0e68035-7d5d-49d3-b707-63975cd36428">
+
+#### Monitoring Step4 of Red Team Activity
+<img src="https://github.com/user-attachments/assets/4d3edbd8-5149-4bb1-b9ce-7d571d60b568">
+
+
 ## Mitigations and Best Practices
