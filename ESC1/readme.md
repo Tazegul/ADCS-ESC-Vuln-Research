@@ -192,6 +192,9 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 |---| --- | --- |
 | Certificate Server | 4886 | Request for Certificate (Certificate Services received a certificate request.) |
 | Certificate Server | 4887 | Certificate Services received a certificate request. |
+| Certificate Server | 4888 | Certificate Services denied a certificate request. |
+| Certificate Server | 4898 | Certificate Services loaded a certificate. |
+| Certificate Server | 4870 | Certificate Services revoked a certificate. |
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
