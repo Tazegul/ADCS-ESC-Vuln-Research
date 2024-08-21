@@ -80,15 +80,15 @@ if($cert_count -ne 0)
         {
             if(($access.IdentityReference -like "*Authenticated Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*'))
                 {
-                    echo "$($cert.Name) Authenticated Users with ExtendedRight and it is vulnerable to ESC1."
+                    echo "$($cert.Name) Authenticated Users with ExtendedRight and it is vulnerable to ESC3."
                 }
             elseif((($access.IdentityReference -like "*Domain Users*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
                 {
-                    echo "$($cert.Name) Domain Users with ExtendedRight and it is vulnerable to ESC1.."
+                    echo "$($cert.Name) Domain Users with ExtendedRight and it is vulnerable to ESC3."
                 }
             elseif((($access.IdentityReference -like "*Everyone*") -and ($access.ActiveDirectoryRights -like '*ExtendedRight*')))
                 {
-                    echo " $($cert.Name) Everyone with ExtendedRight and it is vulnerable to ESC1."
+                    echo " $($cert.Name) Everyone with ExtendedRight and it is vulnerable to ESC3."
                 }
 
         }
@@ -96,7 +96,7 @@ if($cert_count -ne 0)
 }
 else
 {
-    echo "There is no certificate which is vulnerable to ESC1."
+    echo "There is no certificate which is vulnerable to ESC3."
 }
 ```
 
