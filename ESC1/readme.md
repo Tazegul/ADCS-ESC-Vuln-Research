@@ -9,6 +9,7 @@
 5. [Mitigations and Best Practices](#mitigations-and-best-practices)
 
 
+<img width="415" alt="Screenshot 2024-08-21 at 23 03 37" src="https://github.com/user-attachments/assets/3144129a-971e-4943-99fa-cd9ab754dc31">
 
 
 ## ESC1 Vulnerability
