@@ -195,9 +195,9 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
-#### Monitoring Step2 of Red Team Activity
+#### Monitoring and Detection Strategy of Team Activity Step2
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
-Detection Strategy: 
+
 
 ```
 Rule Name: Detect Identity Attack From AD CS ESC1 Vulnerable Template
@@ -205,7 +205,7 @@ Condition:
    IF Event ID == 4887 
    AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
 Action:
-   Generate Alert: "Possible Impersonation Detected: Requester 'harry.potter' requesting certificate for 'severus.snape'"
+   Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
 
 ```
 
