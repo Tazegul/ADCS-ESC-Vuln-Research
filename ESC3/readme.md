@@ -190,7 +190,9 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 
 ### Monitoring and Detection Strategy of Team Activity Step3
 <img src="https://github.com/user-attachments/assets/e0e68035-7d5d-49d3-b707-63975cd36428">
+
 **Rule Logic (Pseudocode)** </br>
+
 ```
 Condition:
    IF Event ID == 4887 
