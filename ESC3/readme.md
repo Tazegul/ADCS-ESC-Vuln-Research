@@ -4,9 +4,10 @@
 2. [Misconfigurations](#misconfigurations) </br>
    2.1. [Misconfiguration Condition](#misconfigurations-condition)</br>
    2.2. [Manual Detection with Powershell and LDAP](#manual-detection-with-powershell-and-ldap)
-5. [Red Team Activity](#red-team-activity)
-6. [Blue Team Activity](#blue-team-activity)
-7. [Mitigations and Best Practices](#mitigations-and-best-practices)
+3. [Red Team Activity](#red-team-activity)
+4. [Blue Team Activity](#blue-team-activity)
+5. [Mitigations and Best Practices](#mitigations-and-best-practices)
+6. [Bonus Section (Disaster Scenarios)](#bonus-section-disaster-scenarios)
 
 ## ESC3 Vulnerability
 Active Directory Certificate Services (AD CS) ESC3 is a specific vulnerability related to certificate enrollment in AD CS, which allows an attacker to escalate privileges by impersonating another user. ESC3 vulnerable template allow requester(attacker) to request certificate <b>on behalf of</b> other users.
@@ -163,7 +164,7 @@ export KRB5CCNAME=severus.snape.ccache;impacket-wmiexec -dc-ip 192.168.0.111 -ta
 
 ## Blue Team Activity
 
-### Monitoring
+### Monitoring and Manual Detection Strategy
 
 <b>Enable Audit Certification Services with GPO.</b> </br>
 Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Object Access > Audit Certification Services.</br>
@@ -184,16 +185,33 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
-#### Monitoring Step2 of Red Team Activity
-<img src="https://github.com/user-attachments/assets/b57eac6f-8970-4cff-9350-40a4670ece39">
 
-#### Monitoring Step3 of Red Team Activity
+### Monitoring and Detection Strategy of Team Activity Step3
 <img src="https://github.com/user-attachments/assets/e0e68035-7d5d-49d3-b707-63975cd36428">
 
-#### Monitoring Step4 of Red Team Activity
+```
+Condition:
+   IF Event ID == 4887 
+   AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
+Action:
+   Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
+
+```
+
+### Monitoring and Detection Strategy of Team Activity Step4
 <img src="https://github.com/user-attachments/assets/4d3edbd8-5149-4bb1-b9ce-7d571d60b568">
 
+**Rule Logic (Pseudocode)** </br>
+**Suggested Action:** Block all types logins of domain administrators from all servers and clients except domain controllers.
+```
+Condition:
+   IF Event ID == 4769 
+      AND
+   IF Extracted_IP_Address(Event 4769) not in (All Domain Computers IP List)
+Action:
+   Generate Alert: "Domain admin user '%(Extracted_TargetUserName(Event 4769)' impersonated from the IP 'Extracted_IP_Address(Event 4769))'"
 
+```
 ## Mitigations and Best Practices
 
 * It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
