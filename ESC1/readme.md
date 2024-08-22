@@ -211,8 +211,8 @@ Action:
 ### Monitoring and Detection Strategy of Team Activity Step3
 <img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
 
-**Rule Logic (Pseudocode)**
-Suggested Action: Block all types logins of domain administrators from all servers and clients except domain coontrollers.
+**Rule Logic (Pseudocode)** </br>
+**Suggested Action:** Block all types logins of domain administrators from all servers and clients except domain controllers.
 ```
 Condition:
    IF Event ID == 4769 
