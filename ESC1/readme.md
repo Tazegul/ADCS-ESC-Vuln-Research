@@ -242,7 +242,7 @@ Domain admin user **severus.snape** impersonated from the IP **192.168.0.109**
 **Q2.** What should you do when you realized that all domain admin user's TGT already obtained by the attacker?</br>
 **A2.** Isolate the certificate server and domain controllers. Delete all templates(if you dont know which template causes to certificate attack) from the AD CS. Create temporary domain admin user and log in domain controllers with this domain admin user. And delete all domain admin users except temporary one. Remove isolations and reconfigure certificate server.</br>
 
-**Q3.** What should you do if multiple critical users, including domain admins, have had their TGT taken , or if you realize you've had vulnerable certificate templates for a long time and don't want to deal with which users have been compromised?
+**Q3.** What should you do if multiple critical users, including domain admins, have had their TGT taken , or if you realize you've had vulnerable certificate templates for a long time and don't want to deal with which users have been compromised?</br>
 **A3.** In this scenario isolate the certificate server and domain controllers and delete vulnerable or all templates. Then log in to the domain controller and restart krbtgt user's password twice. As a last step remove isolation and reconfigure certificate server. 
 
 > [!CAUTION]  
