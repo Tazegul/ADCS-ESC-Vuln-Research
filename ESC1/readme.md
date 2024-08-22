@@ -246,7 +246,7 @@ Domain admin user **severus.snape** impersonated from the IP **192.168.0.109**
 **A3.** In this scenario isolate the certificate server and domain controllers and delete vulnerable or all templates. Then log in to the domain controller and restart krbtgt user's password twice. As a last step remove isolation and reconfigure certificate server. 
 
 > [!CAUTION]  
-> Note that this scenario will kill all sessions in the domain for all users, including service users in the domain. Although this solution is the most definitive solution, it may cause service interruptions in the domain afterwards.
+> Note that this scenario will kill all sessions in the domain for all users, including service users in the domain. Although this is the most definitive solution, it may cause service interruptions in the domain afterwards.
 
 
 
