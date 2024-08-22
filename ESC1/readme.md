@@ -199,14 +199,15 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 Detection Strategy: 
 
-> [!TIP]
-> Optional information to help a user be more successful. </br>
-> Rule Name: Detect Certificate Request Mismatch </br>
-> Condition: </br>
->    IF Event ID == 4887 </br>
->    AND Extracted_User_From(Requester) != Extracted_User_From(SAN) </br>
-> Action: </br>
->    Generate Alert: "Possible Impersonation Detected: Requester 'harry.potter' requesting certificate for 'severus.snape'" </br>
+```
+Rule Name: Detect Identity Attack From AD CS ESC1 Vulnerable Template
+Condition:
+   IF Event ID == 4887 
+   AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
+Action:
+   Generate Alert: "Possible Impersonation Detected: Requester 'harry.potter' requesting certificate for 'severus.snape'"
+
+```
 
 #### Monitoring Step3 of Red Team Activity
 <img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
