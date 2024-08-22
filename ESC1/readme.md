@@ -223,7 +223,7 @@ Action:
 
 ```
 ### Sample Alerts of Red Team Activity</br>
-Possible Impersonation Detected: Requester **harry.potter** requested a certificate for **severus.snape**
+Possible Impersonation Detected: Requester **harry.potter** requested a certificate for **severus.snape**</br>
 Domain admin user **severus.snape** impersonated from the IP **192.168.0.109**
 ## Mitigations and Best Practices
 
