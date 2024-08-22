@@ -196,20 +196,21 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
-### Monitoring and Detection Strategy of Team Activity Step2
+### Monitoring and Detection Strategy of Red Team Activity Step2
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 
 **Rule Logic (Pseudocode)**
 ```
 Condition:
    IF Event ID == 4887 
-   AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
+     AND
+   IF Extracted_User_From(Requester) != Extracted_User_From(SAN)
 Action:
    Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
 
 ```
 
-### Monitoring and Detection Strategy of Team Activity Step3
+### Monitoring and Detection Strategy of Red Team Activity Step3
 <img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
 
 **Rule Logic (Pseudocode)** </br>
