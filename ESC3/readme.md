@@ -195,3 +195,23 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 
 
 ## Mitigations and Best Practices
+
+* It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
+* Conduct a comprehensive monitoring.
+* Disable NTLM authentication and force Kerberos Authentication.
+* See https://learn.microsoft.com/en-us/defender-for-identity/security-assessment-edit-misconfigured-enrollment-agent.
+
+## Bonus Section (Disaster Scenarios)
+
+**Q1.** What should you do when you realized that just one domain admin user's TGT already obtained by the attacker?</br>
+
+**A1.** Isolate the certificate server from the domain for a short time and delete all templates(if you dont know which template causes to certificate attack) from the AD CS. After that login to the Domain Controller and delete compromised admin user from domain. This method will also kill all sessions on domain opened from compromised admin user. As a last step remove isolations and reconfigure certificate templates. (Disabling domain admin user will not work.) (Certificate revoking will not work.)(Restarting KDC server will not work.)</br>
+
+**Q2.** What should you do when you realized that all domain admin user's TGT already obtained by the attacker?</br>
+**A2.** Isolate the certificate server and domain controllers. Delete all templates(if you dont know which template causes to certificate attack) from the AD CS. Create temporary domain admin user and log in domain controllers with this domain admin user. And delete all domain admin users except temporary one. Remove isolations and reconfigure certificate server.</br>
+
+**Q3.** What should you do if multiple critical users, including domain admins, have had their TGT taken , or if you realize you've had vulnerable certificate templates for a long time and don't want to deal with which users have been compromised?</br>
+**A3.** In this scenario isolate the certificate server and domain controllers and delete vulnerable or all templates. Then log in to the domain controller and restart krbtgt user's password twice. As a last step remove isolation and reconfigure certificate server. 
+
+> [!CAUTION]  
+> Note that this scenario will kill all sessions in the domain for all users, including service users in the domain. Although this is the most definitive solution, it may cause service interruptions in the domain afterwards.
