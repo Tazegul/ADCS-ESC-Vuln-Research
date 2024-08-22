@@ -188,7 +188,7 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
 
-### Monitoring and Detection Strategy of Team Activity Step3
+### Monitoring and Detection Strategy of Red Team Activity Step3
 <img src="https://github.com/user-attachments/assets/e0e68035-7d5d-49d3-b707-63975cd36428">
 
 **Rule Logic (Pseudocode)** </br>
@@ -201,7 +201,7 @@ Action:
    Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
 ```
 
-### Monitoring and Detection Strategy of Team Activity Step4
+### Monitoring and Detection Strategy of Red Team Activity Step4
 <img src="https://github.com/user-attachments/assets/4d3edbd8-5149-4bb1-b9ce-7d571d60b568">
 
 **Rule Logic (Pseudocode)** </br>
