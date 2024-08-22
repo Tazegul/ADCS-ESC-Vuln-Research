@@ -195,12 +195,11 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 | Domain Controller | 4768 | A Kerberos authentication ticket (TGT) was requested. |
 | Domain Controller | 4769 | A Kerberos service ticket was requested. |
 
-#### Monitoring and Detection Strategy of Team Activity Step2
+### Monitoring and Detection Strategy of Team Activity Step2
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 
 **Rule Logic (Pseudocode)**
 ```
-Rule Name: Detect Identity Attack From AD CS ESC1 Vulnerable Template
 Condition:
    IF Event ID == 4887 
    AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
@@ -209,8 +208,18 @@ Action:
 
 ```
 
-#### Monitoring Step3 of Red Team Activity
+### Monitoring Step3 of Red Team Activity
 <img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
+
+**Rule Logic (Pseudocode)**
+```
+Block all types logins of domain administrators from all servers and clients except domain coontrollers
+Condition:
+   IF Event ID == 4769 
+      AND
+   IF Extracted_IP_Address(Event 4769) not in (All Domain Computers IP List)
+Action:
+   Generate Alert: "Domain admin user '%(Extracted_TargetUserName(Event 4769) impersonated from the IP Extracted_IP_Address(Event 4769))'"
 
 
 ## Mitigations and Best Practices
