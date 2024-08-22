@@ -200,13 +200,13 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 Detection Strategy: 
 
 > [!TIP]
-> Optional information to help a user be more successful.
-> Rule Name: Detect Certificate Request Mismatch
-> Condition:
->    IF Event ID == 4887 
->    AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
-> Action:
->    Generate Alert: "Possible Impersonation Detected: Requester 'harry.potter' requesting certificate for 'severus.snape'"
+> Optional information to help a user be more successful. </br>
+> Rule Name: Detect Certificate Request Mismatch </br>
+> Condition: </br>
+>    IF Event ID == 4887 </br>
+>    AND Extracted_User_From(Requester) != Extracted_User_From(SAN) </br>
+> Action: </br>
+>    Generate Alert: "Possible Impersonation Detected: Requester 'harry.potter' requesting certificate for 'severus.snape'" </br>
 
 #### Monitoring Step3 of Red Team Activity
 <img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
