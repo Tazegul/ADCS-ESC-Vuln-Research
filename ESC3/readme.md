@@ -12,6 +12,8 @@
 ## ESC3 Vulnerability
 Active Directory Certificate Services (AD CS) ESC3 is a specific vulnerability related to certificate enrollment in AD CS, which allows an attacker to escalate privileges by impersonating another user. ESC3 vulnerable template allow requester(attacker) to request certificate <b>on behalf of</b> other users.
 ## Misconfigurations
+![8](https://github.com/user-attachments/assets/1e7d4a77-201f-44b2-9cc7-2b2f0b498f46)
+
 Unlike ESC1, the requester doesn't have to have the ability to specify subjectAltName (SAN) in the CSR. In other words, msPKI-Certificate-Name doesn't have to be set to flag "CT_FLAG_ENROLEE_SUPPLIES_SUBJECT".
 ### Misconfigurations Condition
 
@@ -188,11 +190,11 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 
 ### Monitoring and Detection Strategy of Team Activity Step3
 <img src="https://github.com/user-attachments/assets/e0e68035-7d5d-49d3-b707-63975cd36428">
-
+**Rule Logic (Pseudocode)** </br>
 ```
 Condition:
    IF Event ID == 4887 
-   AND Extracted_User_From(Requester) != Extracted_User_From(SAN)
+   AND Extracted_User_From(Requester) != Extracted_User_From(Subject)
 Action:
    Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
 
