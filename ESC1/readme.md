@@ -208,7 +208,7 @@ Action:
 
 ```
 
-### Monitoring Step3 of Red Team Activity
+### Monitoring and Detection Strategy of Team Activity Step3
 <img src="https://github.com/user-attachments/assets/6714dab1-5164-4010-981b-b4d5050ea459">
 
 **Rule Logic (Pseudocode)**
