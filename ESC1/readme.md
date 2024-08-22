@@ -7,7 +7,7 @@
 3. [Red Team Activity](#red-team-activity)
 4. [Blue Team Activity](#blue-team-activity)
 5. [Mitigations and Best Practices](#mitigations-and-best-practices)
-6. [Bonus Section (Disaster Scenarios)]()
+6. [Bonus Section (Disaster Scenarios)](#bonus-section-disaster-scenarios)
 
 ## ESC1 Vulnerability
 The ESC1 vulnerability, also known as the "ESC1" or "Enterprise Certificate Services Vulnerability," is a security flaw in certain certificate templates used in Microsoft Active Directory Certificate Services (AD CS). This vulnerability allows users with low privileges to request and obtain certificates <b>for other</b> any domain object, including high-privilege accounts like domain administrators.
