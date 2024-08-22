@@ -196,7 +196,8 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 ```
 Condition:
    IF Event ID == 4887 
-   AND Extracted_User_From(Requester) != Extracted_User_From(Subject)
+      AND
+   IF Extracted_User_From(Requester) != Extracted_User_From(Subject)
 Action:
    Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
 ```
