@@ -198,7 +198,7 @@ certsrv.msc -> Right Click to CA -> Properties -> Auditing -> Select All except 
 #### Monitoring and Detection Strategy of Team Activity Step2
 <img src="https://github.com/user-attachments/assets/d00d79ce-b84b-4acb-9150-70d8d361ebee">
 
-
+**Rule Logic (Pseudocode)**
 ```
 Rule Name: Detect Identity Attack From AD CS ESC1 Vulnerable Template
 Condition:
