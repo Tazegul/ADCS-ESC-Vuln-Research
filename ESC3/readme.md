@@ -51,7 +51,7 @@ IF
 
 ```
 
-### Manual Detection with Powershell and LDAP
+### Manual Detection of ESC3 Vulnerable Templates with Powershell and LDAP
 
 ```powershell
 $domain = "DC=hogwarts,DC=local"
