@@ -219,9 +219,12 @@ Condition:
       AND
    IF Extracted_IP_Address(Event 4769) not in (All Domain Computers IP List)
 Action:
-   Generate Alert: "Domain admin user '%(Extracted_TargetUserName(Event 4769) impersonated from the IP Extracted_IP_Address(Event 4769))'"
+   Generate Alert: "Domain admin user '%(Extracted_TargetUserName(Event 4769)' impersonated from the IP 'Extracted_IP_Address(Event 4769))'"
 
 ```
+### Sample Alerts of Red Team Activity</br>
+Possible Impersonation Detected: Requester **harry.potter** requested a certificate for **severus.snape**
+Domain admin user **severus.snape** impersonated from the IP **192.168.0.109**
 ## Mitigations and Best Practices
 
 * It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
