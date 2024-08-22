@@ -197,7 +197,6 @@ Condition:
    AND Extracted_User_From(Requester) != Extracted_User_From(Subject)
 Action:
    Generate Alert: "Possible Impersonation Detected: Requester '%(Extracted_User_From(Requester))' requesting certificate for '%(Extracted_User_From(SAN))'"
-
 ```
 
 ### Monitoring and Detection Strategy of Team Activity Step4
