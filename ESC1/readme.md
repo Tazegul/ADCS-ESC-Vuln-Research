@@ -221,7 +221,7 @@ Condition:
 Action:
    Generate Alert: "Domain admin user '%(Extracted_TargetUserName(Event 4769) impersonated from the IP Extracted_IP_Address(Event 4769))'"
 
-
+```
 ## Mitigations and Best Practices
 
 * It is recommended to distrupt the [Misconfiguration Condition](#misconfigurations-condition) algorithm.
