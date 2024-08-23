@@ -3,4 +3,4 @@ Active Directory Certificate Services (AD CS) is a Microsoft service that provid
 
 Enterprise Security Certificate (ESC) attacks exploit vulnerabilities in a network's Active Directory Certificate Services (AD CS) configurations to grant unauthorized access or other privileges within the same environment. Such attacks exploit misconfigurations, poor certificate templates, or incorrect access controls that let attackers issue rogue certs to impersonate privileged users. ESCs greatly depend on AD CS as this is responsible for overall management of the Public Key Infrastructure (PKI) and hence an easy target for attackers looking to hack into enterprise security.
 
-This repository focusses on techniques and tools for (ESC) vulnerabilities in Active Directory Certificate Services (ADCS) with Red Team and Blue Team perspectives. This repository will guide for each ESC vulnerability in terms of the misconfiguration, red team approach, blue team approach, and mitigation techniques.
+**This repository focuses each ESC vulnerability in terms of the misconfiguration, red team approach, blue team approach, mitigation techniques and planning for disaster scenarios.**
